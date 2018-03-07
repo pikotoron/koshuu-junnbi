@@ -150,3 +150,28 @@ int main(void)
 ```
 
 同様に、要素の番号を変えることで任意の番号の構造体の要素にアクセスすることができます。
+
+例えば、4番目の構造体のname要素とheight要素にアクセスしたいとき、
+```
+#include <stdio.h>
+
+typedef struct {
+  char name[40];
+  int age;
+  double height;
+  double weight;
+} human;
+
+int main(void)
+{
+  human data[5];
+
+  scanf("%s",data[4].name);
+  scanf("%lf",&data[4].height);
+
+  printf("data[4].name = %s\n",data[4].name);
+  printf("data[4].height = %.1fcm\n",data[4].height);
+
+  return 0;
+}
+```
