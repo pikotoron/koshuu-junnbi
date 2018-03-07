@@ -115,3 +115,36 @@ int main(void)
 ```
 
 一般的にはこちらの書き方を使います。
+
+
+## 構造体の配列
+構造体変数は構造体そのものが変数として扱われます。すなわち、構造体を配列のようにいくつも宣言することができるのです。
+
+構造体の配列は次のように宣言します。
+```
+構造体タグ名 構造体変数名[要素数];
+```
+
+例として、先の構造体humanの構造体変数dataを5個宣言し、二番目のage要素にアクセスするプログラムを示します。
+```
+#include <stdio.h>
+
+typedef struct {
+  char name[40];
+  int age;
+  double height;
+  double weight;
+} human;
+
+int main(void)
+{
+  human data[5];
+
+  data[2].age = 18;
+  printf("%d\n",data[2].age);
+
+  return 0;
+}
+```
+
+同様に、要素の番号を変えることで任意の番号の構造体の要素にアクセスすることができます。
