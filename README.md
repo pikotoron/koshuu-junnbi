@@ -285,10 +285,108 @@ void human_print(human data)
 ```
 名前:char name[60];
 年齢:int age;
-性別:char gender;
+性別:char gender; //M or F
 ```
 ただし、構造体の配列をもちいて三人の情報を記憶してください。
 
 
 ##  練習問題1
+```
+#include <stdio.h>
+
+int main(void)
+{
+  int month;
+  scanf("%d",&month);
+
+  switch (month) {
+  case 1:
+    printf("睦月\n");
+    break;
+
+  case 2:
+    printf("如月\n");
+    break;
+
+  case 3:
+    printf("弥生\n");
+    break;
+
+  case 4:
+    printf("卯月\n");
+    break;
+
+  case 5:
+    printf("皐月\n");
+    break;
+
+  case 6:
+    printf("水無月\n");
+    break;
+
+  case 7:
+    printf("文月\n");
+    break;
+
+  case 8:
+    printf("葉月\n");
+    break;
+
+  case 9:
+    printf("長月\n");
+    break;
+
+  case 10:
+    printf("神無月\n");
+    break;
+
+  case 11:
+    printf("霜月\n");
+    break;
+
+  case 12:
+    printf("師走\n");
+    break;
+
+  default:
+    printf("そんなのnothing\n");
+    break;
+  }
+
+  return 0;
+}
+```
+
+
+## 練習問題2
+```
+#include <stdio.h>
+
+typedef struct {
+  char name[60];
+  int age;
+  char gender;
+} human;
+
+int main(void)
+{
+  int i;
+  human data[3];
+
+  for (i=0; i<3; i++) {
+    printf("%d番目の人の情報を入力してください。\n",i+1);
+    scanf("%s",data[i].name);
+    scanf("%d",&data[i].age);
+    scanf("%s",&data[i].gender);
+  }
+
+  for (i=0; i<3; i++) {
+    printf("%d番目の人の情報\n",i+1);
+    printf("%s\n",data[i].name);
+    printf("%d歳\n",data[i].age);
+    printf("性別:%c\n",data[i].gender);
+  }
+
+  return 0;
+}
 ```
