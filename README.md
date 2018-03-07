@@ -107,7 +107,7 @@ int main(void)
 {
   human data; //structを書かない
 
-  data.age = 18;
+  data.age = 18;
   printf("%d\n",data.age);
 
   return 0;
