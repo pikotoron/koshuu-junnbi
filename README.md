@@ -127,7 +127,7 @@ int main(void)
 構造体タグ名 構造体変数名[要素数];
 ```
 
-例として、先の構造体humanの構造体変数dataを5個宣言し、二番目のage要素にアクセスするプログラムを示します。
+例として、先の構造体humanの構造体変数dataを5個宣言し、3番目のage要素にアクセスするプログラムを示します。
 ```
 #include <stdio.h>
 
@@ -151,7 +151,7 @@ int main(void)
 
 同様に、要素の番号を変えることで任意の番号の構造体の要素にアクセスすることができます。
 
-例えば、4番目の構造体のname要素とheight要素にアクセスして入力したいとき、
+例えば、5番目の構造体のname要素とheight要素にアクセスして入力したいとき、
 ```
 #include <stdio.h>
 
@@ -176,3 +176,41 @@ int main(void)
 }
 ```
 と書くことができます。
+
+
+## 構造体の引数
+構造体変数も一つの変数なので、関数の引数にし、一度に複数の情報を渡すことができます。例として、human_print関数に引数として構造体を渡すプログラムを示します。
+```
+#include <stdio.h>
+
+typedef struct {
+  char name[40];
+  int age;
+  double height;
+  double weight;
+} human;
+
+void human_print(human);
+
+int main(void)
+{
+  human data;
+
+  scanf("%s",data.name);
+  scanf("%d",&data.age);
+  scanf("%lf",&data.height);
+  scanf("%lf",&data.weight);
+
+  human_print(data);
+
+  return 0;
+}
+
+void human_print(human data)
+{
+  printf("%s\n",data.name);
+  printf("%d歳\n",data.age);
+  printf("%.1fcm\n",data.height);
+  printf("%.1fkg\n",data.weight);
+}
+```
